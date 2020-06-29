@@ -7,23 +7,23 @@
 
   <defs>
     <linearGradient id="color-background">
-      <stop offset="1" stop-color="#181818"/>
+      <stop offset="1" stop-color="#282A36"/>
     </linearGradient>
 
     <linearGradient id="color-surface">
-      <stop offset="1" stop-color="#343434"/>
+      <stop offset="1" stop-color="#3B3D48"/>
     </linearGradient>
 
     <linearGradient id="color-base">
-      <stop offset="1" stop-color="#242424"/>
+      <stop offset="1" stop-color="#333540"/>
     </linearGradient>
 
     <linearGradient id="color-base-alt">
-      <stop offset="1" stop-color="#242424"/>
+      <stop offset="1" stop-color="#333540"/>
     </linearGradient>
 
     <linearGradient id="color-primary">
-      <stop offset="1" stop-color="#8ab4f8"/>
+      <stop offset="1" stop-color="#BD93F9"/>
     </linearGradient>
 
     <linearGradient id="color-text">
@@ -75,7 +75,7 @@
     </linearGradient>
 
     <linearGradient id="color-overlay-primary-active">
-      <stop offset="1" stop-color="#8ab4f8" stop-opacity=".28"/>
+      <stop offset="1" stop-color="BD93F9" stop-opacity=".28"/>
     </linearGradient>
 
     <filter id="z1" color-interpolation-filters="sRGB" x="0" y="0" width="1" height="1">
