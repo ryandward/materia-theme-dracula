@@ -24,7 +24,7 @@ foreach color: get_option('colors')
       scss_variant = 'light'
       scss_topbar = 'light'
     elif color == 'dark'
-      color_suffix = '-dark'
+      color_suffix = ''
       scss_variant = 'dark'
       scss_topbar = 'dark'
     endif
