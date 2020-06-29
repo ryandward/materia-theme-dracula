@@ -37,8 +37,8 @@
 
 $on-colors: (
   dark: (
-    primary: #1a73e8,
-    error: #d93025,
+    primary: #75D7EC,
+    error: #E64747,
     text: rgba(black, .87),
     text2: rgba(black, .6),
     text-disabled: rgba(black, .38),
@@ -50,8 +50,8 @@ $on-colors: (
     entry-fill: rgba(black, .04)
   ),
   light: (
-    primary: #8ab4f8,
-    error: #f28b82,
+    primary: #BD93F9,
+    error: #E64747,
     text: white,
     text2: rgba(white, .7),
     text-disabled: rgba(white, .5),
@@ -81,7 +81,7 @@ $on-colors: (
 }
 
 // Private variables for dark background colors
-$-dark-background:                       #181818;
+$-dark-background:                       #282A36;
 $-dark-surface-1dp:                      mix(white, $-dark-background, 5%);
 $-dark-surface-4dp:                      mix(white, $-dark-background, 9%);
 $-dark-surface-8dp:                      mix(white, $-dark-background, 12%);
@@ -101,20 +101,20 @@ $base:                                  if($variant == 'light', #ffffff, $-dark-
 $base-alt:                              if($variant == 'light', #fafafa, $-dark-surface-1dp);
 
 $error:                                 if($variant == 'light', on(light, error), on(dark, error));
-$warning:                               if($variant == 'light', #f4b400, #fdd633);
-$success:                               if($variant == 'light', #0f9d58, #81c995);
+$warning:                               if($variant == 'light', #f4b400, #EFA554);
+$success:                               if($variant == 'light', #0f9d58, #42E66C);
 $visited:                               if($variant == 'light', $purple-500, $purple-200);
 
 $os-background:                         $-dark-background;
-$tooltip:                               rgba(#616161, .9);
+$tooltip:                               rgba(#282A36, .9);
 $scrim:                                 rgba(black, .6);
 $scrim-alt:                             rgba(black, .3);
 
-$panel:                                 if($topbar == 'dark', #1f1f1f, $scrim);
-$panel-solid:                           if($topbar == 'dark', #1f1f1f, #cccccc); // for Unity panel which doesn't allow translucent colors
+$panel:                                 if($topbar == 'dark', #282A36, $scrim);
+$panel-solid:                           if($topbar == 'dark', #282A36, #cccccc); // for Unity panel which doesn't allow translucent colors
 
-$titlebar:                              if($topbar == 'dark', if($variant == 'light', #383838, $-dark-surface-4dp), #e0e0e0);
-$titlebar-backdrop:                     if($topbar == 'dark', if($variant == 'light', #303030, $-dark-surface-1dp), #d6d6d6);
+$titlebar:                              if($topbar == 'dark', if($variant == 'light', #3B3D48, $-dark-surface-4dp), #e0e0e0);
+$titlebar-backdrop:                     if($topbar == 'dark', if($variant == 'light', #333540, $-dark-surface-1dp), #d6d6d6);
 $titlebar-indicator:                    if($topbar == 'dark', currentcolor, $primary);
 
 //

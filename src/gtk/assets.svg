@@ -25,15 +25,15 @@
     </linearGradient>
 
     <linearGradient id="dark-theme-background">
-      <stop offset="1" stop-color="#181818"/>
+      <stop offset="1" stop-color="#282A36"/>
     </linearGradient>
 
     <linearGradient id="dark-theme-surface">
-      <stop offset="1" stop-color="#343434"/>
+      <stop offset="1" stop-color="#3B3D48"/>
     </linearGradient>
 
     <linearGradient id="dark-theme-primary">
-      <stop offset="1" stop-color="#8ab4f8"/>
+      <stop offset="1" stop-color="#BD93F9"/>
     </linearGradient>
 
     <linearGradient id="dark-theme-on-primary">

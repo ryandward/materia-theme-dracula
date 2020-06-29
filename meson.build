@@ -1,9 +1,9 @@
 project(
-  'materia-theme',
+  'materia-theme-dracula',
   version: '20200320',
   license: 'GPLv2+',
   meson_version: '>= 0.47.0',
-  default_options: ['prefix=/usr'],
+  default_options: ['prefix=/usr', 'colors=dark'],
 )
 
 theme_base_name = get_option('theme_name')
@@ -61,3 +61,4 @@ if not get_option('flatpak')
 else
   subdir('src/gtk')
 endif
+
