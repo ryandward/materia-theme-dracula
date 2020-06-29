@@ -1,15 +1,14 @@
 <img src="../images/materia-logo.svg" alt="materia-logo" align="right" />
 
-# Materia
+# Materia Dracula
 
-Materia is a [Material Design](https://material.io) theme for GNOME/GTK based desktop environments.
+This is the Materia theme except with Dracula colors.
 
-It supports GTK 2, GTK 3, GNOME Shell, Budgie, Cinnamon, MATE, Unity, Xfce, LightDM, GDM, Chrome theme, etc.
+I only changed GTK and Gnome-Shell colors. There is only one color variation (dark).
 
 ## Previews
 
 ![widget-factory](../images/widget-factory.png?raw=true)
-![widget-factory-dark](../images/widget-factory-dark.png?raw=true)
 
 ## Features
 
