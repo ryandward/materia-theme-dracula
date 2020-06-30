@@ -75,7 +75,7 @@
     </linearGradient>
 
     <linearGradient id="color-overlay-primary-active">
-      <stop offset="1" stop-color="BD93F9" stop-opacity=".28"/>
+      <stop offset="1" stop-color="#BD93F9" stop-opacity=".28"/>
     </linearGradient>
 
     <filter id="z1" color-interpolation-filters="sRGB" x="0" y="0" width="1" height="1">
