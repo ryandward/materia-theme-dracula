@@ -138,7 +138,7 @@ $overlay-selected:                      rgba($primary, .24);
 // “On” colors
 //
 
-$base-fg:                               if($variant == 'light', black, white);
+$base-fg:                               if($variant == 'light', black, #F8F8F2);
 
 $text:                                  rgba($base-fg, .87);
 $text2:                                 rgba($base-fg, .6);
@@ -150,7 +150,7 @@ $divider:                               rgba($base-fg, .12);
 $fill:                                  rgba($base-fg, .08);
 $entry-fill:                            rgba($base-fg, .04);
 
-$titlebar-base-fg:                      if($topbar == 'dark', white, black);
+$titlebar-base-fg:                      if($topbar == 'dark', #F8F8F2, black);
 
 $titlebar-text:                         rgba($titlebar-base-fg, .87);
 $titlebar-text2:                        rgba($titlebar-base-fg, .6);

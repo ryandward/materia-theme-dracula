@@ -91,6 +91,14 @@
   }
 }
 
+#panel.dashtopanelLeft.vertical .panel-button:active {
+  box-shadow: inset -2px 0 white;
+}
+
+#panel.dashtopanelRight.vertical .panel-button:active {
+  box-shadow: inset 2px 0 white;
+}
+
 
 /* Simple Dock */
 
