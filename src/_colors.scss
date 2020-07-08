@@ -52,15 +52,15 @@ $on-colors: (
   light: (
     primary: #BD93F9,
     error: #E64747,
-    text: white,
-    text2: rgba(white, .7),
-    text-disabled: rgba(white, .5),
-    text2-disabled: rgba(white, .3),
-    stroke: rgba(white, .3),
-    stroke-disabled: rgba(white, .12),
-    divider: rgba(white, .12),
-    fill: rgba(white, .08),
-    entry-fill: rgba(white, .04)
+    text: #F8F8F2,
+    text2: rgba(#F8F8F2, .7),
+    text-disabled: rgba(#F8F8F2, .5),
+    text2-disabled: rgba(#F8F8F2, .3),
+    stroke: rgba(#F8F8F2, .3),
+    stroke-disabled: rgba(#F8F8F2, .12),
+    divider: rgba(#F8F8F2, .12),
+    fill: rgba(#F8F8F2, .08),
+    entry-fill: rgba(#F8F8F2, .04)
   )
 );
 
