@@ -15,12 +15,12 @@ foreach theme: themes
   )
 endforeach
 
-#subdir('chrome')
-#subdir('cinnamon')
+subdir('chrome')
+subdir('cinnamon')
 subdir('gnome-shell')
 subdir('gtk')
 subdir('gtk-2.0')
-#subdir('metacity-1')
-#subdir('plank')
-#subdir('unity')
-#subdir('xfwm4')
+subdir('metacity-1')
+subdir('plank')
+subdir('unity')
+subdir('xfwm4')

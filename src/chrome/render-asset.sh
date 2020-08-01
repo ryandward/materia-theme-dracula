@@ -8,7 +8,7 @@ OPTIPNG="$(command -v optipng)" || true
 if "$INKSCAPE" --help | grep -e "--export-png" > /dev/null; then
   EXPORT_FILE_OPTION="--export-png"
 else
-  EXPORT_FILE_OPTION="--export-filename"
+  EXPORT_FILE_OPTION="--export-file"
 fi
 
 i="$1"

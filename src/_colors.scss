@@ -110,8 +110,8 @@ $tooltip:                               rgba(#282A36, .9);
 $scrim:                                 rgba(black, .6);
 $scrim-alt:                             rgba(black, .3);
 
-$panel:                                 if($topbar == 'dark', #242632, $scrim);
-$panel-solid:                           if($topbar == 'dark', #242632, #cccccc); // for Unity panel which doesn't allow translucent colors
+$panel:                                 if($topbar == 'dark', #1E2029, $scrim);
+$panel-solid:                           if($topbar == 'dark', #1E2029, #cccccc); // for Unity panel which doesn't allow translucent colors
 
 $titlebar:                              if($topbar == 'dark', if($variant == 'light', #3B3D48, $-dark-surface-4dp), #e0e0e0);
 $titlebar-backdrop:                     if($topbar == 'dark', if($variant == 'light', #333540, $-dark-surface-1dp), #d6d6d6);
