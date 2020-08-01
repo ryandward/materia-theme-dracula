@@ -9,7 +9,7 @@ if [ -n "$INKSCAPE" ] ; then
   if "$INKSCAPE" --help | grep -e "--export-png" > /dev/null; then
     EXPORT_FILE_OPTION="--export-png"
   else
-    EXPORT_FILE_OPTION="--export-file"
+    EXPORT_FILE_OPTION="--export-filename"
   fi
 fi
 
