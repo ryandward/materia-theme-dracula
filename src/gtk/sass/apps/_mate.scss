@@ -1,10 +1,9 @@
 // based css:
 // https://github.com/mate-desktop/mate-themes/blob/master/desktop-themes/Menta/gtk-3.0/mate-applications.css
 
-/**
- * Mate-Panel
- */
-
+/**************
+ * Mate-Panel *
+ **************/
 // first make all transparent
 .mate-panel-menu-bar menubar,
 #PanelApplet-window-menu-applet-button {
@@ -14,7 +13,7 @@
 // let's start it
 .mate-panel-menu-bar {
   background-color: $panel;
-  color: hint($on-panel);
+  color: on($panel, text2);
   font-weight: 500;
 
   button {
@@ -22,22 +21,15 @@
     min-width: 16px;
     padding: 0; // NOTE: Most buttons padding are hard-coded to 0 (except for hide buttons)
     border-radius: 0;
-    background-color: transparent;
-    color: hint($on-panel);
-    @include ink-color($on-panel);
 
-    &:disabled {
-      color: disabled-hint($on-panel);
-    }
+    @include ink-color(on($panel, text2));
+
+    &:disabled { color: on($panel, text2-disabled); }
 
     &:checked {
-      background-color: overlay("activated", $on-panel);
-      color: $on-panel;
-      @include ink-color($on-panel);
+      color: on(dark);
 
-      &:disabled {
-        color: disabled($on-panel);
-      }
+      &:disabled { color: on(dark, text-disabled); }
     }
   }
 }
@@ -56,7 +48,7 @@ PanelToplevel.vertical > grid > button {
 }
 
 PanelSeparator {
-  color: divider($on-panel);
+  color: on($panel, divider);
 }
 
 // the grid left from na-tray and wncktasklist
@@ -70,40 +62,26 @@ MatePanelAppletFrameDBus > MatePanelAppletFrameDBus {
     );
   background-repeat: no-repeat;
   background-size: 4px 10px;
-  color: disabled-hint($on-panel);
+  color: on($panel, text2-disabled);
 
-  &:dir(ltr) {
-    background-position: 3px;
-  }
+  &:dir(ltr) { background-position: 3px; }
 
-  &:dir(rtl) {
-    background-position: calc(100% - 3px);
-  }
+  &:dir(rtl) { background-position: calc(100% - 3px); }
 }
 
 // main menu
 .mate-panel-menu-bar {
   // set normal menubar button
   menubar > menuitem {
-    color: hint($on-panel);
+    color: on($panel, text2);
 
-    &:hover {
-      background-color: overlay("activated", $on-panel);
-      color: $on-panel;
-    }
+    &:hover { color: on($panel); }
 
-    &:disabled {
-      color: disabled-hint($on-panel);
-    }
+    &:disabled { color: on($panel, text2-disabled); }
   }
 
-  &.horizontal menubar > menuitem {
-    padding: 0 8px;
-  }
-
-  &.vertical menubar > menuitem {
-    padding: 8px 0;
-  }
+  &.horizontal menubar > menuitem { padding: 0 8px; }
+  &.vertical menubar > menuitem { padding: 8px 0; }
 
   // set normal menubar menuitem
   menubar menu > menuitem {
@@ -121,38 +99,25 @@ MatePanelAppletFrameDBus > MatePanelAppletFrameDBus {
 }
 
 .mate-panel-menu-bar #tasklist-button {
-  border-image:
-    radial-gradient(
-      circle closest-corner at center calc(100% - 1px),
-      currentcolor 0%,
-      transparent 0%
-    ) 0 0 0 / 0 0 0;
+  border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                currentColor 0%,
+                                transparent 0%)
+                                0 0 0 / 0 0 0px;
 
   &:checked {
-    border-image:
-      radial-gradient(
-        circle closest-corner at center calc(100% - 1px),
-        currentcolor 100%,
-        transparent 0%
-      ) 0 0 2 / 0 0 2px;
+    border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                  currentColor 100%,
+                                  transparent 0%)
+                                  0 0 2 / 0 0 2px;
   }
 
   // instead of #tasklist-button { padding: 0 4px; }
-  image:dir(ltr),
-  label:dir(rtl) {
-    padding-left: 4px;
-  }
-
-  label:dir(ltr),
-  image:dir(rtl) {
-    padding-right: 4px;
-  }
+  image:dir(ltr), label:dir(rtl) { padding-left: 4px; }
+  label:dir(ltr), image:dir(rtl) { padding-right: 4px; }
 }
 
 // #tasklist-button is always horizontal even if the panel is vertical
-.mate-panel-menu-bar.vertical #tasklist-button {
-  min-height: 32px;
-}
+.mate-panel-menu-bar.vertical #tasklist-button { min-height: 32px; }
 
 #showdesktop-button {
   .mate-panel-menu-bar.horizontal & image {
@@ -169,59 +134,42 @@ MatePanelAppletFrameDBus > MatePanelAppletFrameDBus {
 // WnckPager
 PanelApplet.wnck-applet .wnck-pager {
   background-color: transparent;
-  color: primary($on-panel);
+  color: on($panel, primary);
 
-  &:hover {
-    background-color: overlay("hover", $on-panel);
-  }
+  &:hover { background-color: $overlay-hover; }
 
-  &:active {
-    background-color: overlay("pressed", $on-panel);
-  }
+  &:active { background-color: $overlay-active; }
 
-  &:selected {
-    background-color: $primary;
-  }
+  &:selected { background-color: $primary; }
 }
 
 #clock-applet-button {
-  .mate-panel-menu-bar.horizontal & label {
-    padding: 0 8px;
-  }
-
-  .mate-panel-menu-bar.vertical & label {
-    padding: 8px 0;
-  }
+  .mate-panel-menu-bar.horizontal & label { padding: 0 8px; }
+  .mate-panel-menu-bar.vertical & label { padding: 8px 0; }
 }
 
 #MatePanelPopupWindow {
-  border: 1px solid divider($on-surface);
+  border: 1px solid $divider;
   border-radius: $corner-radius + 1px;
   box-shadow: inset 0 1px highlight($surface);
   background-color: $surface;
 
-  frame > border {
-    border-style: none;
-  }
+  frame > border { border-style: none; }
 
   calendar {
     border-style: none;
 
-    &:not(:selected) {
-      background-color: transparent;
-    }
+    &:not(:selected) { background-color: transparent; }
 
     // Add separator between calendar and location
     + box {
       margin-top: -5px;
       padding-top: 5px;
-      border-top: 1px solid divider($on-surface);
+      border-top: 1px solid $divider;
     }
   }
 
-  expander > title {
-    min-height: 32px;
-  }
+  expander > title { min-height: 32px; }
 
   button {
     @extend %button-flat-basic;
@@ -230,9 +178,7 @@ PanelApplet.wnck-applet .wnck-pager {
   }
 
   // Weird, this sets the border color of the clockmap
-  > frame > box > box > box > widget {
-    color: divider($on-surface);
-  }
+  > frame > box > box > box > widget { color: $divider; }
 }
 
 na-tray-applet {
@@ -257,33 +203,29 @@ na-tray-applet widget box widget {
 
 // volume applet, brightness applet
 .mate-panel-applet-slider {
-  border: 1px solid divider($on-surface);
+  border: 1px solid $divider;
   border-radius: $corner-radius + 1px;
   box-shadow: inset 0 1px highlight($surface);
   background-color: $surface;
 
-  frame > border {
-    border-style: none;
-  }
+  frame > border { border-style: none; }
 }
 
 // mate-menu
 
 // #PanelApplet itself cannot change the background-color
 #PanelApplet {
-  &:not(:selected) > box {
-    transition: $transition;
-  }
+  &:not(:selected) > box { transition: $transition; }
 
   &:selected > box {
-    background-color: overlay("activated", $on-panel);
-    color: $on-panel;
+    background-color: $overlay-checked;
+    color: on($panel);
   }
 }
 
 #mate-menu {
   // FIXME, does not work
-  border: 1px solid divider($on-surface);
+  border: 1px solid $divider;
   background-color: $surface;
 
   button {
@@ -292,25 +234,19 @@ na-tray-applet widget box widget {
     min-height: 24px;
     min-width: 24px;
     padding: 4px 0;
-    color: $on-surface;
+    color: $text;
     font-weight: normal;
 
-    &:not(.flat) {
-      background-color: overlay("activated", $on-surface);
-    }
+    &:not(.flat) { background-color: $overlay-checked; }
 
     image,
-    label + label {
-      color: hint($on-surface);
-    }
+    label + label { color: $text2; }
   }
 
   entry {
     margin: 0 0 4px;
 
-    image {
-      margin: 0;
-    }
+    image { margin: 0; }
 
     + button {
       margin: 0 4px 4px;
@@ -326,7 +262,7 @@ na-tray-applet widget box widget {
 
   entry {
     margin-bottom: -2px;
-    border-bottom: 1px solid divider($on-surface);
+    border-bottom: 1px solid $divider;
     border-image: none;
     box-shadow: none;
     background-color: transparent;
@@ -335,12 +271,12 @@ na-tray-applet widget box widget {
   entry + box > box {
     &:dir(ltr) {
       margin-right: -2px;
-      border-right: 1px solid divider($on-surface);
+      border-right: 1px solid $divider;
     }
 
     &:dir(rtl) {
       margin-left: -2px;
-      border-left: 1px solid divider($on-surface);
+      border-left: 1px solid $divider;
     }
   }
 
@@ -350,21 +286,13 @@ na-tray-applet widget box widget {
     button {
       margin: 0 4px;
 
-      &:checked {
-        background-color: overlay("activated", $primary);
-        color: $primary;
-        @include ink-color($primary);
-      }
+      &:checked { @include ink-color($primary); }
     }
   }
 
-  .session-button {
-    padding: ($large-size - 24px) / 2;
-  }
+  .session-button { padding: ($large-size - 24px) / 2; }
 
-  .frame {
-    border-style: none;
-  }
+  .frame { border-style: none; }
 
   .apps-list {
     padding: 4px 0;
@@ -373,23 +301,21 @@ na-tray-applet widget box widget {
     row {
       padding: 0;
 
-      &:hover {
-        box-shadow: none;
-      }
+      &:hover { box-shadow: none; }
     }
 
     button {
       border-radius: 0;
-      color: $on-surface;
+      color: $text;
       font-weight: normal;
     }
   }
 }
 
-/**
- * CAJA File manager
- */
 
+/*********************
+ * CAJA File manager *
+ *********************/
 // pathbar toggle button
 .caja-navigation-window box.horizontal > button.toggle.image-button {
   @extend %button-flat-activatable;
@@ -406,9 +332,7 @@ na-tray-applet widget box widget {
   @extend %pathbar_button;
 
   // NOTE: padding is hard-coded to 0
-  &.slider-button {
-    min-width: 24px;
-  }
+  &.slider-button { min-width: 24px; }
 
   // arrow button
   > widget {
@@ -432,11 +356,9 @@ na-tray-applet widget box widget {
 
 .caja-side-pane notebook,
 .caja-notebook {
-  border-top: 1px solid divider($on-surface);
+  border-top: 1px solid $divider;
 
-  .frame {
-    border-style: none;
-  }
+  .frame { border-style: none; }
 }
 
 // window and desktop mode
@@ -457,32 +379,27 @@ na-tray-applet widget box widget {
 .caja-navigation-window .view .entry {
   border: none;
   border-radius: $corner-radius;
-  background-color: entry-fill($on-surface);
+  background-color: $entry-fill;
   background-image: none;
-  color: $on-surface;
+  color: $text;
 
-  &:selected {
-    background-color: $overlay-selected;
-  }
+  &:selected { background-color: $overlay-selected; }
 }
 
 .caja-desktop.view .entry {
   background-color: $scrim-alt;
-  color: $on-dark;
+  color: on(dark);
   text-shadow: $text-shadow;
-  caret-color: currentcolor; // this shouldn't be needed.
+  caret-color: currentColor; // this shouldn't be needed.
 
-  &:selected {
-    // FIXME: this should have light overlay.
-    background-color: $overlay-selected;
-  }
+  &:selected { background-color: $overlay-selected; } // FIXME: this should have light overlay.
 }
 
 // statusbar
 .caja-navigation-window statusbar {
   margin: 0 -10px;
   padding: 0 4px;
-  border-top: 1px solid divider($on-surface);
+  border-top: 1px solid $divider;
 }
 
 // infobar
@@ -492,37 +409,30 @@ na-tray-applet widget box widget {
 }
 
 #caja-extra-view-widget {
-  border-bottom: 1px solid divider($on-surface);
+  border-bottom: 1px solid $divider;
   background-color: $base;
 
-  > box > box > label {
-    font-weight: bold;
-  }
+  > box > box > label { font-weight: bold; }
 
   button {
     @extend %button-flat;
 
-    &:not(:disabled) {
-      color: $primary;
-      @include ink-color($primary);
-    }
+    &:not(:disabled) { @include ink-color($primary); }
   }
 }
 
-/**
- * Pluma
- */
 
+/*********
+ * Pluma *
+ *********/
 // Pluma status bar
 .pluma-window statusbar {
   margin: 0 -10px;
   padding: 0 4px;
-  border-top: 1px solid divider($on-surface);
+  border-top: 1px solid $divider;
 
   frame {
-    > border {
-      border-style: none;
-    }
+    > border { border-style: none; }
 
     button.flat {
       padding: 0 4px;
@@ -538,13 +448,9 @@ na-tray-applet widget box widget {
 
 // Printpreview
 .pluma-print-preview {
-  toolbar {
-    border-bottom: 1px solid divider($on-surface);
-  }
+  toolbar { border-bottom: 1px solid $divider; }
 
-  scrolledwindow {
-    // background-color: $base;
-  }
+  // scrolledwindow { background-color: $base; }
 }
 
 // sidebar file-browser
@@ -555,71 +461,57 @@ na-tray-applet widget box widget {
     @extend %button-small;
   }
 
-  .frame {
-    border-style: none;
-  }
+  .frame { border-style: none; }
 
   notebook.frame {
     margin-top: -1px;
-    border-top: 1px solid divider($on-surface);
+    border-top: 1px solid $divider;
 
-    box.vertical toolbar.horizontal {
-      border-bottom: 1px solid divider($on-surface);
-    }
+    box.vertical toolbar.horizontal { border-bottom: 1px solid $divider; }
   }
 }
 
-/**
- * Atril
- */
 
+/*********
+ * Atril *
+ *********/
 .atril-window paned.horizontal box.vertical {
-  .frame {
-    border-style: none;
-  }
+  .frame { border-style: none; }
 
-  notebook .frame {
-    border-top: 1px solid divider($on-surface);
-  }
+  notebook .frame { border-top: 1px solid $divider; }
 }
+
 
 /* mate-screensaver lock dialog */
-
 .lock-dialog {
-  border: 1px solid divider($on-surface);
+  border: 1px solid $divider;
   border-radius: $corner-radius + 1px;
   box-shadow: $shadow-z6, inset 0 1px highlight($surface); // not sure if box-shadow works here
   background-color: $surface;
 
-  frame > border {
-    border-style: none;
-  }
+  frame > border { border-style: none; }
 
   button {
     @extend %button-flat;
 
-    &:not(:disabled) {
-      color: $primary;
-      @include ink-color($primary);
-    }
+    &:not(:disabled) { @include ink-color($primary); }
   }
 }
 
 /* multimedia OSD */
-
 MsdOsdWindow.background.osd {
   border-radius: $corner-radius;
   background-color: $tooltip;
-  color: $on-tooltip;
+  color: on($tooltip);
 
   .trough {
     border-radius: 0;
-    background-color: disabled-stroke($on-tooltip);
+    background-color: on($tooltip, stroke-disabled);
   }
 
   .progressbar {
     border-radius: 0;
-    background-color: $on-tooltip;
+    background-color: on($tooltip);
   }
 
   // For mate-settings-daemon noncomposited osd windows

@@ -9,7 +9,7 @@
   border-radius: $corner-radius;
   box-shadow: $shadow-4;
   background-color: $surface;
-  color: $on-surface;
+  color: $text;
 
   @if $version >= 3.36 {
     .modal-dialog-content-box {
@@ -99,7 +99,7 @@
   .end-session-dialog-shutdown-icon {
     width: 48px;
     height: 48px;
-    color: hint($on-surface);
+    color: $text2;
   }
 
   .end-session-dialog-inhibitor-layout {
@@ -133,7 +133,7 @@
   }
 
   .end-session-dialog-app-list-item-description {
-    color: hint($on-surface);
+    color: $text2;
     font-size: 1em;
   }
 }
@@ -153,7 +153,7 @@
     }
 
     .message-dialog-description {
-      color: hint($on-surface);
+      color: $text2;
       text-align: inherit;
     }
   }
@@ -178,7 +178,7 @@
   }
 
   .message-dialog-subtitle {
-    color: hint($on-surface);
+    color: $text2;
     font-weight: normal;
   }
 }
@@ -207,7 +207,7 @@
       }
 
       .dialog-list-item-description {
-        color: hint($on-surface);
+        color: $text2;
         font-size: 1em;
       }
     }
@@ -228,13 +228,13 @@
 
     .run-dialog-description {
       text-align: inherit;
-      color: hint($on-surface);
+      color: $text2;
       font-size: 1em;
     }
   } @else {
     .run-dialog-label {
       padding-bottom: .4em;
-      color: hint($on-surface);
+      color: $text2;
       font-weight: normal;
       font-size: 1em;
     }
@@ -290,7 +290,7 @@
   }
 
   .prompt-dialog-password-entry {
-    width: 18em;
+    width: 20em;
   }
 } @else {
   .prompt-dialog {
@@ -362,7 +362,7 @@
 
 .polkit-dialog-user-layout {
   @if $version >= 3.36 {
-    text-align: center;
+    text-align: inherit;
     spacing: 8px;
     margin-bottom: 6px;
   } @else {
@@ -421,16 +421,16 @@
   border-radius: $corner-radius;
 
   &:focus {
-    background-color: overlay("focus", $on-surface);
+    background-color: $overlay-focus;
   }
 
   &:hover {
-    background-color: overlay("hover", $on-surface);
+    background-color: $overlay-hover;
   }
 
   &:active {
     transition-duration: $duration-ripple;
-    background-color: overlay("pressed", $on-surface);
+    background-color: $overlay-active;
     color: inherit;
   }
 }
@@ -539,7 +539,7 @@
     }
 
     .message-dialog-title {
-      color: hint($on-surface);
+      color: $text2;
       font-weight: normal;
     }
   }

@@ -35,7 +35,7 @@
   border-radius: $corner-radius;
   box-shadow: $shadow-2;
   background-color: $surface;
-  color: $on-surface;
+  color: $text;
 }
 
 // menu items
@@ -58,18 +58,18 @@
   }
 
   &.selected {
-    background-color: overlay("hover", $on-surface);
+    background-color: $overlay-hover;
     transition-duration: 0ms;
 
     &,
     &:active {
-      color: $on-surface;
+      color: $text;
     }
   }
 
   &:active {
-    background-color: overlay("pressed", $on-surface);
-    color: $on-surface;
+    background-color: $overlay-active;
+    color: $text;
     transition-duration: $duration-ripple;
   }
 
@@ -79,25 +79,25 @@
     font-weight: normal;
 
     &.selected {
-      background-color: overlay("hover", $primary, $background: $overlay-selected);
+      background-color: rgba($primary, .4);
     }
 
     &:active {
-      background-color: overlay("pressed", $primary, $background: $overlay-selected);
+      background-color: rgba($primary, .6);
     }
   }
 
   &:insensitive {
-    color: disabled($on-surface);
+    color: $text-disabled;
   }
 }
 
 // all icons and other graphical elements
 .popup-inactive-menu-item {
-  color: $on-surface;
+  color: $text;
 
   &:insensitive {
-    color: disabled($on-surface);
+    color: $text-disabled;
   }
 }
 
@@ -110,15 +110,10 @@
     width: 16px;
     height: 16px;
   }
-
-  .popup-menu-content & {
-    color: hint($on-surface);
-  }
 }
 
 .popup-menu-icon {
   icon-size: 16px;
-  color: hint($on-surface);
 }
 
 // popover submenus
@@ -127,7 +122,7 @@
   border-bottom: 0;
   padding-bottom: 0;
   box-shadow: none;
-  background-color: entry-fill($on-surface);
+  background-color: $entry-fill;
 }
 
 // container for radio and check boxes
@@ -146,12 +141,12 @@
       // -margin-horizontal: 24px;
       height: 1px; // not really the whole box
       margin: 8px 0;
-      background-color: divider($on-surface);
+      background-color: $divider;
 
       // submenu separators
       .popup-sub-menu & {
         margin: 8px 0;
-        background-color: divider($on-surface);
+        background-color: $divider;
 
         &:ltr {
           margin-right: 32px;
@@ -169,7 +164,7 @@
     height: 1px; // not really the whole box
     margin: 8px 64px - 24px;
     border: 0;
-    background-color: divider($on-surface);
+    background-color: $divider;
   }
 }
 
@@ -227,27 +222,27 @@
     padding: ($large-size - 16px) / 2;
     border: 0;
     border-radius: $large-size / 2; // wish we could do 50%
-    color: hint($on-surface);
+    color: $text2;
     transition-duration: $duration;
 
     &:hover,
     &:focus {
       padding: ($large-size - 16px) / 2;
       border: 0;
-      color: hint($on-surface);
+      color: $text2;
     }
 
     &:focus {
-      background-color: overlay("focus", $on-surface);
+      background-color: $overlay-focus;
     }
 
     &:hover {
-      background-color: overlay("hover", $on-surface);
+      background-color: $overlay-hover;
     }
 
     &:active {
-      background-color: overlay("pressed", $on-surface);
-      color: hint($on-surface);
+      background-color: $overlay-active;
+      color: $text2;
       transition-duration: $duration-ripple;
     }
 

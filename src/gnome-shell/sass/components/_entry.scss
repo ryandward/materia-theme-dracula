@@ -6,9 +6,9 @@ StEntry {
   padding: 0 8px;
   border-width: 0;
   border-radius: $corner-radius $corner-radius 0 0;
-  color: $on-surface;
+  color: $text;
   selection-background-color: $overlay-selected;
-  selected-color: $on-surface;
+  selected-color: $text;
   @include type(body1);
   @include entry(normal);
 
@@ -37,15 +37,15 @@ StEntry {
   StIcon.peek-password {
     icon-size: 16px;
     padding: 0 4px;
-    color: hint($on-surface);
+    color: $text2;
 
     &:hover {
-      color: $on-surface;
+      color: $text;
     }
   }
 
   StLabel.hint-text {
     margin-left: 2px;
-    color: hint($on-surface);
+    color: $text2;
   }
 }

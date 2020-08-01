@@ -1,15 +1,12 @@
 // based css:
 // https://github.com/solus-project/budgie-desktop/tree/master/src/theme
 
-/**
- * Budgie Desktop
- */
-
+/******************
+ * Budgie Desktop *
+ ******************/
 // Container for both the "panel" area and the shadow. Wise to keep
 // this transparent..
-.budgie-container {
-  background-color: transparent;
-}
+.budgie-container { background-color: transparent; }
 
 .budgie-settings-window buttonbox.inline-toolbar {
   border-style: none none solid;
@@ -24,55 +21,41 @@
 .budgie-popover {
   border-style: solid;
   border-width: 1px;
-  border-color: rgba(black, .1) rgba(black, .2) rgba(black, .3);
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.3);
   border-radius: $corner-radius + 1px;
   box-shadow: $shadow-z4;
   background-color: $surface;
 
-  .container {
-    padding: 2px;
-  }
+  .container { padding: 2px; }
 
-  border {
-    border: none;
-  }
+  border { border: none; }
 
-  list {
-    background-color: transparent;
-  }
+  list { background-color: transparent; }
 
   row {
     padding: 0;
 
-    &:hover {
-      box-shadow: none;
-    }
+    &:hover { box-shadow: none; }
   }
 
   button.flat:not(.image-button) {
     min-height: $menuitem-size;
     padding: 0 8px;
-    color: $on-surface;
+    color: $text;
     font-weight: normal;
 
-    &:disabled {
-      color: disabled($on-surface);
-    }
+    &:disabled { color: $text-disabled; }
   }
 
   &.budgie-menu {
-    .container {
-      padding: 0;
-    }
+    .container { padding: 0; }
 
     .sidebar,
     scrollbar,
-    entry.search {
-      background-color: transparent;
-    }
+    entry.search { background-color: transparent; }
 
     entry.search {
-      border-bottom: 1px solid divider($on-surface);
+      border-bottom: 1px solid $divider;
       border-image: none;
       border-radius: 0;
       box-shadow: none;
@@ -86,43 +69,28 @@
 
       @include list-item;
 
-      &:checked {
-        background-color: $overlay-selected;
-      }
+      &:checked { @extend %selected_items; }
 
-      // remove pointless indicator
-      &:checked:disabled {
-        background-color: transparent;
-      }
+      &:checked:disabled { background-color: transparent; } // remove pointless indicator
     }
   }
 
   &.user-menu {
-    .container {
-      padding: 8px;
-    }
+    .container { padding: 8px; }
 
-    separator {
-      margin: 4px 0;
-    }
+    separator { margin: 4px 0; }
   }
 
   &.sound-popover {
-    separator {
-      margin: 3px 0;
-    }
+    separator { margin: 3px 0; }
   }
 
   &.night-light-indicator {
-    .container {
-      padding: 8px;
-    }
+    .container { padding: 8px; }
   }
 
   &.places-menu {
-    .container {
-      padding: 8px;
-    }
+    .container { padding: 8px; }
 
     // FIXME: untested
     .message-bar {
@@ -131,13 +99,8 @@
 
     .name-button {
       image {
-        &:dir(ltr) {
-          margin-right: 8px - 5px;
-        }
-
-        &:dir(rtl) {
-          margin-left: 8px - 5px;
-        }
+        &:dir(ltr) { margin-right: 8px - 5px; }
+        &:dir(rtl) { margin-left: 8px - 5px; }
       }
     }
 
@@ -152,7 +115,7 @@
     .places-list:not(.always-expand) {
       margin-top: 4px;
       padding-top: 4px;
-      border-top: 1px solid divider($on-surface);
+      border-top: 1px solid $divider;
     }
 
     // FIXME: untested
@@ -172,88 +135,61 @@
   }
 
   &.workspace-popover {
-    .container {
-      padding: 8px;
-    }
+    .container { padding: 8px; }
 
-    separator {
-      margin: 4px 0;
-    }
+    separator { margin: 4px 0; }
 
-    flowboxchild {
-      padding: 0;
-    }
+    flowboxchild { padding: 0; }
   }
 }
 
 // FIXME: workspace has unnecessary/unknown margin
 .workspace-switcher {
   .workspace-layout {
-    border: 0 solid divider($on-panel);
+    border: 0 solid on($panel, divider);
 
     .top &,
     .bottom & {
-      &:dir(ltr) {
-        border-left-width: 1px;
-      }
+      &:dir(ltr) { border-left-width: 1px; }
 
-      &:dir(rtl) {
-        border-right-width: 1px;
-      }
+      &:dir(rtl) { border-right-width: 1px; }
     }
 
     .left &,
-    .right & {
-      border-top-width: 1px;
-    }
+    .right & { border-top-width: 1px; }
   }
 
   .workspace-item,
   .workspace-add-button {
-    border: 0 solid divider($on-panel);
+    border: 0 solid on($panel, divider);
 
     .top &,
     .bottom & {
-      &:dir(ltr) {
-        border-right-width: 1px;
-      }
+      &:dir(ltr) { border-right-width: 1px; }
 
-      &:dir(rtl) {
-        border-left-width: 1px;
-      }
+      &:dir(rtl) { border-left-width: 1px; }
     }
 
     .left &,
-    .right & {
-      border-bottom-width: 1px;
-    }
+    .right & { border-bottom-width: 1px; }
   }
 
   .workspace-item {
     transition: $transition;
 
-    &.current-workspace {
-      background-color: overlay("activated", $on-panel);
-    }
+    &.current-workspace { background-color: $overlay-checked; }
   }
 
   .workspace-add-button {
-    &:hover {
-      box-shadow: none;
-    }
+    &:hover { box-shadow: none; }
 
-    &:active {
-      background-image: none;
-    }
+    &:active { background-image: none; }
 
-    &:active image {
-      margin: 1px 0 -1px;
-    }
+    &:active image { margin: 1px 0 -1px; }
   }
 
   .workspace-icon-button {
-    // to overwrite the .budgie-panel button style below
-    .budgie-panel & {
+    .budgie-panel & { // to overwrite the .budgie-panel button style below
       min-height: 24px;
       min-width: 24px;
       padding: 0;
@@ -276,54 +212,36 @@ button.raven-trigger {
 .budgie-panel {
   transition: background-color $duration $ease-out;
   background-color: $panel;
-  color: hint($on-panel);
+  color: on($panel, text2);
   font-weight: 500;
 
-  &.transparent {
-    background-color: $scrim;
-    color: hint($on-scrim);
-  }
+  &.transparent { background-color: $scrim; }
 
   button {
     min-height: 16px;
     min-width: 16px;
     padding: 0;
     border-radius: 0;
-    background-color: transparent;
-    color: hint($on-panel);
-    @include ink-color($on-panel);
 
-    &:disabled {
-      color: disabled-hint($on-panel);
-    }
+    @include ink-color(on($panel, text2));
+
+    &:disabled { color: on($panel, text2-disabled); }
 
     &:checked {
-      background-color: overlay("activated", $on-panel);
-      color: $on-panel;
-      @include ink-color($on-panel);
+      color: on(dark);
 
-      &:disabled {
-        color: disabled($on-panel);
-      }
+      &:disabled { color: on(dark, text-disabled); }
     }
   }
 
-  &.horizontal button {
-    padding: 0 4px;
-  }
+  &.horizontal button { padding: 0 4px; }
 
-  &.vertical button {
-    padding: 4px 0;
-  }
+  &.vertical button { padding: 4px 0; }
 
-  separator {
-    background-color: stroke($on-panel);
-  }
+  separator { background-color: on($panel, stroke); }
 
   // used to indicate unread notifications
-  .alert {
-    color: error($on-panel);
-  }
+  .alert { color: on($panel, primary); }
 
   // End Section needs to be fancy
   .end-region {
@@ -336,10 +254,10 @@ button.raven-trigger {
     padding: 0;
     box-shadow: none;
     background-color: transparent;
-    color: $on-panel;
+    color: on($panel);
 
     button:not(.suggested-action):not(.destructive-action) {
-      color: hint($on-panel);
+      color: on($panel, text2);
     }
   }
 
@@ -350,9 +268,7 @@ button.raven-trigger {
     @extend %underscores;
   }
 
-  &.vertical #tasklist-button {
-    min-height: 32px;
-  }
+  &.vertical #tasklist-button { min-height: 32px; }
 
   // Icon Tasklist
   button.flat.launcher {
@@ -362,18 +278,14 @@ button.raven-trigger {
 
     // for indicator colors
     &:not(:checked) {
-      color: disabled($on-panel);
+      color: on($panel, text-disabled);
 
-      &:disabled {
-        color: disabled-hint($on-panel);
-      }
+      &:disabled { color: on($panel, text2-disabled); }
     }
   }
 
   .unpinned button.flat.launcher,
-  .pinned button.flat.launcher.running {
-    @extend %underscores-checked;
-  }
+  .pinned button.flat.launcher.running { @extend %underscores-checked; }
 }
 
 $underscores-list:
@@ -389,7 +301,7 @@ $underscores-list:
         border-image:
           radial-gradient(
             circle closest-corner at #{$b_pos},
-            currentcolor 0%,
+            currentColor 0%,
             transparent 0%
           ) 0 0 0 0 / 0 0 0 0;
       }
@@ -399,7 +311,7 @@ $underscores-list:
         border-image:
           radial-gradient(
             circle closest-corner at #{$b_pos},
-            currentcolor 100%,
+            currentColor 100%,
             transparent 0%
           ) #{$b_wid};
       }
@@ -416,34 +328,25 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
 
 @each $pos, $b_pos in $pos_list {
   // Panel borders
-  .#{$pos} .budgie-panel {
-    // border-#{$b_pos}: 1px solid divider($on-surface);
-  }
+  // .#{$pos} .budgie-panel { border-#{$b_pos}: 1px solid $divider; }
 
   // Raven borders
   .#{$pos} frame.raven-frame > border {
     margin-#{$b_pos}: 32px;
-    // border-#{$b_pos}: 1px solid divider($on-surface);
+    // border-#{$b_pos}: 1px solid $divider;
   }
 
   // Shadows
-  .#{$pos} .shadow-block {
-    // background-image: linear-gradient(to $b_pos, divider($on-surface), transparent);
-  }
+  // .#{$pos} .shadow-block { background-image: linear-gradient(to $b_pos, $divider, transparent); }
 }
 
 // Raven
 .raven {
   background-color: $surface;
 
-  list {
-    background-color: transparent;
-  }
+  list { background-color: transparent; }
 
-  // remove extra space between box and .raven-header.bottom
-  > box:not(:only-child) {
-    margin-bottom: -10px;
-  }
+  > box:not(:only-child) { margin-bottom: -10px; } // remove extra space between box and .raven-header.bottom
 
   .raven-header {
     min-height: $medium-size;
@@ -452,7 +355,7 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
     // Adopt tabs style only for .top
     &.top {
       padding: 0;
-      border-bottom: 1px solid divider($on-surface);
+      border-bottom: 1px solid $divider;
 
       stackswitcher.linked > button {
         @extend %button-flat-activatable;
@@ -460,52 +363,35 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
         margin: -4px 0 -5px; // remove unwanted vertical margins
         padding: 0 16px;
         min-height: $large-size;
-        border-image:
-          radial-gradient(
-            circle closest-corner at center calc(100% - 1px),
-            $primary 0%,
-            transparent 0%
-          ) 0 0 0 / 0 0 0;
+        border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                      $primary 0%,
+                                      transparent 0%)
+                                      0 0 0 / 0 0 0px;
         border-radius: 0;
 
         &:checked {
-          border-image:
-            radial-gradient(
-              circle closest-corner at center calc(100% - 1px),
-              $primary 100%,
-              transparent 0%
-            ) 0 0 2 / 0 0 2px;
+          border-image: radial-gradient(circle closest-corner at center calc(100% - 1px),
+                                        $primary 100%,
+                                        transparent 0%)
+                                        0 0 2 / 0 0 2px;
           background-color: transparent;
         }
       }
     }
 
-    &.bottom {
-      border-top: 1px solid divider($on-surface);
-    }
+    &.bottom { border-top: 1px solid $divider; }
   }
 
   stack {
-    // remove extra space in Notifications stack
-    .raven-header {
-      margin-top: -6px;
-    }
+    .raven-header { margin-top: -6px; } // remove extra space in Notifications stack
 
-    // remove extra spaces in Applets stack
-    scrolledwindow .raven-header {
-      margin-top: -8px;
-    }
+    scrolledwindow .raven-header { margin-top: -8px; } // remove extra spaces in Applets stack
   }
 
-  .expander-button {
-    border-radius: $circular-radius;
-  }
+  .expander-button { border-radius: $circular-radius; }
 
   .raven-background {
-    // applet background between two headers
-    &.middle {
-      // border-bottom-style: none;
-    }
+    // &.middle { border-bottom-style: none; } // applet background between two headers
 
     // Adopt Choice chips style
     stackswitcher.linked > button {
@@ -515,33 +401,21 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
       padding: 0 12px;
       min-height: 32px;
       border-radius: $circular-radius;
-      background-color: fill($on-surface);
+      background-color: $fill;
       font-weight: normal;
 
-      &:checked {
-        background-color: overlay("activated", $primary);
-        color: $primary;
-        @include ink-color($primary);
-      }
+      &:checked { @include ink-color($primary); }
 
-      &:not(:first-child) {
-        margin-left: 0;
-      }
+      &:not(:first-child) { margin-left: 0; }
     }
 
     // Default music icon
-    > overlay > widget > image {
-      color: fill($on-surface);
-    }
+    > overlay > widget > image { color: $fill; }
   }
 
-  revealer > .raven-background {
-    border-bottom: 1px solid divider($on-surface);
-  }
+  revealer > .raven-background { border-bottom: 1px solid $divider; }
 
-  .raven-header + .raven-background {
-    border-top: 1px solid divider($on-surface);
-  }
+  .raven-header + .raven-background { border-top: 1px solid $divider; }
 
   // Application block in Notifications stack
   viewport.frame > list > row {
@@ -550,9 +424,7 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
     box-shadow: none;
     background: none;
 
-    &:not(:first-child) {
-      border-top: 1px solid divider($on-surface);
-    }
+    &:not(:first-child) { border-top: 1px solid $divider; }
 
     > box {
       // Remove awkward hard-coded margins
@@ -575,14 +447,10 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
 
           > box {
             // Title
-            > label {
-              font-weight: bold;
-            }
+            > label { font-weight: bold; }
 
             // Close button
-            > button.image-button {
-              padding: 0;
-            }
+            > button.image-button { padding: 0; }
           }
 
           > label {
@@ -599,9 +467,7 @@ $pos_list: (top: bottom, bottom: top, left: right, right: left);
     padding: ($large-size - 24px) / 2;
   }
 
-  .option-subtitle {
-    font-size: smaller;
-  }
+  .option-subtitle { font-size: smaller; }
 }
 
 // Calendar
@@ -611,40 +477,33 @@ calendar.raven-calendar {
   background-color: transparent;
 
   &:selected {
+    @extend %selected_items;
+
     border-radius: $corner-radius;
-    background-color: $overlay-selected;
   }
 }
 
 // MPRIS Applet
 .raven-mpris {
   background-color: $scrim;
-  color: $on-scrim;
+  color: on($scrim);
 
-  label {
-    min-height: 24px;
-  }
+  label { min-height: 24px; }
 
   button.image-button {
     padding: ($large-size - 24px) / 2;
-    color: hint($on-scrim);
-    @include ink-color($on-scrim);
+
+    @include ink-color(on($scrim, text2));
   }
 }
 
 // Notifications
-.budgie-notification-window {
-  background-color: transparent;
-}
+.budgie-notification-window { background-color: transparent; }
 
 .budgie-notification {
-  .notification-title {
-    font-size: 120%;
-  }
+  .notification-title { font-size: 120%; }
 
-  .notification-body {
-    color: hint($on-surface);
-  }
+  .notification-body { color: $text2; }
 }
 
 // On Screen Display in Budgie
@@ -654,9 +513,7 @@ calendar.raven-calendar {
 
 // Internal part of the OSD
 .budgie-osd {
-  .budgie-osd-text {
-    font-size: 120%;
-  }
+  .budgie-osd-text { font-size: 120%; }
 }
 
 // Alt+tab switcher in Budgie
@@ -679,15 +536,10 @@ calendar.raven-calendar {
   button {
     @extend %button-flat;
 
-    &.text-button:not(:disabled) {
-      color: $primary;
-      @include ink-color($primary);
-    }
+    &.text-button:not(:disabled) { @include ink-color($primary); }
   }
 
-  .linked > button {
-    margin-right: $container-padding;
-  }
+  .linked > button { margin-right: $container-padding; }
 }
 
 %budgie_dialog {
@@ -695,18 +547,14 @@ calendar.raven-calendar {
   box-shadow: inset 0 1px highlight($surface);
   background-color: $surface;
 
-  decoration {
-    border-radius: $corner-radius;
-  }
+  decoration { border-radius: $corner-radius; }
 }
 
 // Session Dialog
 .budgie-session-dialog {
   @extend %budgie_dialog;
 
-  > box {
-    padding: 8px;
-  }
+  > box { padding: 8px; }
 
   // Hide power icon
   image {
@@ -721,21 +569,14 @@ calendar.raven-calendar {
     font-weight: 500;
   }
 
-  .dialog-title + label {
-    color: hint($on-surface);
-  }
+  .dialog-title + label { color: $text2; }
 
   .linked.horizontal > button {
     @extend %button-flat;
 
-    &:not(:last-child) {
-      margin-right: 8px;
-    }
+    &:not(:last-child) { margin-right: 8px; }
 
-    &:not(:disabled) {
-      color: $primary;
-      @include ink-color($primary);
-    }
+    &:not(:disabled) { @include ink-color($primary); }
   }
 }
 
@@ -743,13 +584,9 @@ calendar.raven-calendar {
 .budgie-polkit-dialog {
   @extend %budgie_dialog;
 
-  .message {
-    color: hint($on-surface);
-  }
+  .message { color: $text2; }
 
-  .failure {
-    color: $error;
-  }
+  .failure { color: $error; }
 }
 
 // Run Dialog
@@ -768,14 +605,10 @@ calendar.raven-calendar {
     padding: 4px 0;
     background-color: transparent;
 
-    .dim-label {
-      color: inherit;
-    }
+    .dim-label { color: inherit; }
   }
 
-  scrolledwindow {
-    border-top: 1px solid divider($on-surface);
-  }
+  scrolledwindow { border-top: 1px solid $divider; }
 
   scrollbar {
     &.right,

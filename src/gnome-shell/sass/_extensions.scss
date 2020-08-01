@@ -5,7 +5,7 @@
 }
 
 #dashtodockContainer:overview #dash {
-  background-color: fill($on-dark);
+  background-color: on(dark, fill);
 }
 
 #dashtodockContainer.extended:overview #dash {
@@ -64,7 +64,7 @@
 // Running and focused application style
 
 #dashtodockContainer .focused .overview-icon {
-  background-color: overlay("activated", $on-dark);
+  background-color: $overlay-checked;
 }
 
 // Remove background-color if the indicator style is default
@@ -106,33 +106,27 @@
   background-color: $scrim;
 }
 
+
 /* GPaste */
 
 .popup-menu {
   .search-entry {
-    color: $on-surface;
+    color: $text;
     selection-background-color: $overlay-selected;
-    selected-color: $on-surface;
+    selected-color: $text;
     @include entry(normal);
 
-    &:hover {
-      @include entry(hover);
-    }
+    &:hover { @include entry(hover); }
 
     &:focus {
       @include entry(focus);
-      color: $on-surface;
+      color: $text;
     }
 
-    .search-entry-icon {
-      color: hint($on-surface);
-    }
+    .search-entry-icon { color: $text2; }
 
-    &:hover,
-    &:focus {
-      .search-entry-icon {
-        color: $on-surface;
-      }
+    &:hover, &:focus {
+      .search-entry-icon { color: $text; }
     }
   }
 }
