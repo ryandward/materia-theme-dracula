@@ -137,7 +137,7 @@ $on-scrim: on($scrim);
 $scrim-alt: rgba(black, .3);
 $on-scrim-alt: on($scrim-alt);
 
-$panel: #1f1f1f;
+$panel: darken($-dark-background, 2%);
 $on-panel: on($panel);
 
 // for Unity panel which doesn't allow translucent colors
